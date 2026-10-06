@@ -13,6 +13,7 @@
             --accent-red: #ff3366;
             --cream: #fffafb;
             --text-color: #5c4146;
+            --light-gray: #f5f5f5;
         }
 
         * {
@@ -20,6 +21,10 @@
             margin: 0;
             padding: 0;
             font-family: 'Quicksand', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
@@ -40,6 +45,9 @@
             align-items: center;
             border-bottom: 4px dashed var(--primary-pink);
             box-shadow: 0 4px 10px rgba(255, 183, 197, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .logo-area {
@@ -49,6 +57,8 @@
             font-family: 'Fredoka One', cursive;
             font-size: 1.5rem;
             color: var(--dark-pink);
+            text-decoration: none;
+            cursor: pointer;
         }
 
         .kitty-bow-icon {
@@ -56,16 +66,35 @@
             height: auto;
         }
 
+        nav {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+        }
+
         nav a {
             text-decoration: none;
             color: var(--text-color);
             font-weight: 700;
-            margin-left: 20px;
             transition: color 0.3s;
         }
 
         nav a:hover {
             color: var(--dark-pink);
+        }
+
+        .cta-button {
+            background-color: var(--dark-pink);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .cta-button:hover {
+            background-color: var(--accent-red);
         }
 
         .hero {
@@ -113,6 +142,46 @@
             margin-bottom: 25px;
         }
 
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .btn-primary, .btn-secondary {
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--dark-pink);
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 102, 153, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 102, 153, 0.5);
+        }
+
+        .btn-secondary {
+            background-color: white;
+            color: var(--dark-pink);
+            border: 2px solid var(--dark-pink);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--soft-pink);
+        }
+
         .menu-container {
             max-width: 1100px;
             margin: 60px auto;
@@ -126,9 +195,6 @@
             color: var(--dark-pink);
             margin-bottom: 40px;
             position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
         }
 
         .section-title::after {
@@ -203,6 +269,57 @@
             display: inline-block;
             border: 2px dashed white;
             box-shadow: 0 0 0 3px var(--dark-pink);
+            margin-bottom: 15px;
+        }
+
+        .card-quantity {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .qty-btn {
+            width: 30px;
+            height: 30px;
+            border: 2px solid var(--primary-pink);
+            background: white;
+            color: var(--dark-pink);
+            border-radius: 50%;
+            cursor: pointer;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .qty-btn:hover {
+            background-color: var(--primary-pink);
+            color: white;
+        }
+
+        .qty-input {
+            width: 50px;
+            text-align: center;
+            border: 2px solid var(--soft-pink);
+            border-radius: 5px;
+            padding: 5px;
+            font-weight: 700;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--accent-red);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: var(--dark-pink);
         }
 
         .about-section {
@@ -224,12 +341,178 @@
             margin-bottom: 20px;
         }
 
+        /* Order Summary Section */
+        .order-section {
+            background-color: #fff0f3;
+            padding: 60px 20px;
+            border-top: 4px dashed var(--primary-pink);
+            border-bottom: 4px dashed var(--primary-pink);
+        }
+
+        .order-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .order-summary {
+            background: white;
+            border: 3px solid var(--primary-pink);
+            border-radius: 20px;
+            padding: 30px;
+            margin-top: 30px;
+            box-shadow: 0 8px 0px var(--soft-pink);
+        }
+
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 2px dashed var(--soft-pink);
+        }
+
+        .order-item:last-child {
+            border-bottom: none;
+        }
+
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-pink);
+            border-top: 2px solid var(--primary-pink);
+            margin-top: 20px;
+        }
+
+        .empty-cart {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 100%);
+            padding: 60px 20px;
+            border-top: 4px dashed var(--primary-pink);
+        }
+
+        .contact-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 8px 0px var(--soft-pink);
+        }
+
+        .contact-info h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.4rem;
+            color: var(--dark-pink);
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            margin-bottom: 20px;
+            display: flex;
+            gap: 15px;
+            align-items: flex-start;
+        }
+
+        .contact-icon {
+            font-size: 1.8rem;
+        }
+
+        .contact-item p {
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 8px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid var(--soft-pink);
+            border-radius: 10px;
+            font-family: 'Quicksand', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-pink);
+            box-shadow: 0 0 0 3px rgba(255, 183, 197, 0.2);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--dark-pink);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--accent-red);
+        }
+
+        .form-success {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            border: 2px solid #c3e6cb;
+        }
+
         footer {
             background-color: var(--soft-pink);
             text-align: center;
             padding: 40px 20px;
             color: var(--text-color);
             font-weight: bold;
+            border-top: 4px dashed var(--primary-pink);
         }
 
         footer p {
@@ -242,17 +525,56 @@
             opacity: 0.8;
         }
 
-        @media (max-width: 600px) {
+        /* Cart Badge */
+        .cart-badge {
+            background-color: var(--accent-red);
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.9rem;
+            position: absolute;
+            top: -8px;
+            right: -8px;
+        }
+
+        .cart-link {
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
             .hero p { font-size: 1.1rem; }
+            nav { flex-wrap: wrap; gap: 15px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .hero-buttons { flex-direction: column; }
+            .btn-primary, .btn-secondary { width: 100%; }
+        }
+
+        .remove-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: background-color 0.3s;
+        }
+
+        .remove-btn:hover {
+            background-color: #cc0000;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo-area">
-            <!-- Decorative SVG Hello Kitty Ribbon/Bow -->
+        <a href="#" class="logo-area" onclick="scrollToTop()">
             <svg class="kitty-bow-icon" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
                 <ellipse cx="50" cy="35" rx="18" ry="15" fill="#ff3366"/>
                 <ellipse cx="25" cy="28" rx="20" ry="18" fill="#ff3366"/>
@@ -262,51 +584,51 @@
                 <circle cx="50" cy="35" r="7" fill="#ffcc00"/>
             </svg>
             Yaya's Treats
-        </div>
+        </a>
         <nav>
             <a href="#menu">Menu</a>
-            <a href="#about">Our Story</a>
+            <a href="#about">About</a>
+            <a href="#order-summary">Order</a>
+            <a href="#contact">Contact</a>
+            <a href="#order-summary" class="cta-button cart-link">
+                🛒 Cart
+                <span class="cart-badge" id="cartBadge">0</span>
+            </a>
         </nav>
     </header>
 
     <section class="hero">
-        <!-- SVG Stylized Hello Kitty Face Graphic -->
         <svg class="hero-kitty" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
-            <!-- Head Background & Shadow -->
             <ellipse cx="80" cy="70" rx="65" ry="50" fill="#fff" stroke="#5c4146" stroke-width="4"/>
-            <!-- Left Ear -->
             <path d="M 25 35 L 15 5 C 18 2, 35 5, 45 23" fill="#fff" stroke="#5c4146" stroke-width="4" stroke-linejoin="round"/>
-            <!-- Right Ear -->
             <path d="M 135 35 L 145 5 C 142 2, 125 5, 115 23" fill="#fff" stroke="#5c4146" stroke-width="4" stroke-linejoin="round"/>
-            <!-- Re-draw head bounds to clip ears cleanly -->
             <ellipse cx="80" cy="70" rx="65" ry="50" fill="none" stroke="#5c4146" stroke-width="4"/>
-            <!-- Red Iconic Bow -->
             <g transform="translate(100, 10)">
                 <ellipse cx="25" cy="20" rx="13" ry="11" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
                 <ellipse cx="5" cy="13" rx="14" ry="12" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
                 <ellipse cx="41" cy="13" rx="14" ry="12" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
                 <circle cx="23" cy="15" r="7" fill="#ffcc00" stroke="#5c4146" stroke-width="3"/>
             </g>
-            <!-- Eyes -->
             <ellipse cx="50" cy="72" rx="4" ry="6" fill="#5c4146"/>
             <ellipse cx="110" cy="72" rx="4" ry="6" fill="#5c4146"/>
-            <!-- Nose -->
             <ellipse cx="80" cy="82" rx="6" ry="4" fill="#ffcc00"/>
-            <!-- Whiskers Left -->
             <line x1="20" y1="72" x2="38" y2="74" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
             <line x1="16" y1="84" x2="36" y2="83" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
-            <!-- Whiskers Right -->
             <line x1="140" y1="72" x2="122" y2="74" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
             <line x1="144" y1="84" x2="124" y2="83" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
         </svg>
         
         <h1>Welcome to Yaya's Treats</h1>
         <p>Baking the world a sweeter place, one adorable treat at a time! 💕</p>
+        <div class="hero-buttons">
+            <a href="#menu" class="btn-primary">Order Now</a>
+            <a href="#about" class="btn-secondary">Learn More</a>
+        </div>
     </section>
 
     <main class="menu-container" id="menu">
         <h2 class="section-title">Our Signature Flavors</h2>
-        <div class="grid">
+        <div class="grid" id="menuGrid">
             
             <div class="card">
                 <span class="card-bow">🎀</span>
@@ -314,6 +636,12 @@
                 <h3>Brownies</h3>
                 <p>Rich, fudgy chocolate goodness baked to melt-in-your-mouth perfection.</p>
                 <span class="price-badge">$2.00</span>
+                <div class="card-quantity">
+                    <button class="qty-btn" onclick="decreaseQty(0)">−</button>
+                    <input type="number" class="qty-input" id="qty-0" value="0" min="0" onchange="updateQty(0)">
+                    <button class="qty-btn" onclick="increaseQty(0)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(0, 'Brownies', 2.00)">Add to Cart</button>
             </div>
 
             <div class="card">
@@ -322,6 +650,12 @@
                 <h3>Fruity Pebble</h3>
                 <p>A colorful, crunchy blast of sweet cereal milk goodness in every single bite.</p>
                 <span class="price-badge">$2.00</span>
+                <div class="card-quantity">
+                    <button class="qty-btn" onclick="decreaseQty(1)">−</button>
+                    <input type="number" class="qty-input" id="qty-1" value="0" min="0" onchange="updateQty(1)">
+                    <button class="qty-btn" onclick="increaseQty(1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(1, 'Fruity Pebble', 2.00)">Add to Cart</button>
             </div>
 
             <div class="card">
@@ -330,6 +664,12 @@
                 <h3>Cookie Monster</h3>
                 <p>Packed with loaded cookies and sweet blue magic that monsters of all ages crave.</p>
                 <span class="price-badge">$2.00</span>
+                <div class="card-quantity">
+                    <button class="qty-btn" onclick="decreaseQty(2)">−</button>
+                    <input type="number" class="qty-input" id="qty-2" value="0" min="0" onchange="updateQty(2)">
+                    <button class="qty-btn" onclick="increaseQty(2)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(2, 'Cookie Monster', 2.00)">Add to Cart</button>
             </div>
 
             <div class="card">
@@ -338,6 +678,12 @@
                 <h3>Strawberry Shortcake</h3>
                 <p>Sweet, tangy strawberry bliss layered perfectly with a light, dreamy crumble texture.</p>
                 <span class="price-badge">$2.00</span>
+                <div class="card-quantity">
+                    <button class="qty-btn" onclick="decreaseQty(3)">−</button>
+                    <input type="number" class="qty-input" id="qty-3" value="0" min="0" onchange="updateQty(3)">
+                    <button class="qty-btn" onclick="increaseQty(3)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(3, 'Strawberry Shortcake', 2.00)">Add to Cart</button>
             </div>
 
             <div class="card">
@@ -346,6 +692,12 @@
                 <h3>Cookies n Creme</h3>
                 <p>Classic chocolate sandwich cookie crumbles folded directly into smooth, creamy velvet batter.</p>
                 <span class="price-badge">$2.00</span>
+                <div class="card-quantity">
+                    <button class="qty-btn" onclick="decreaseQty(4)">−</button>
+                    <input type="number" class="qty-input" id="qty-4" value="0" min="0" onchange="updateQty(4)">
+                    <button class="qty-btn" onclick="increaseQty(4)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart(4, 'Cookies n Creme', 2.00)">Add to Cart</button>
             </div>
 
         </div>
@@ -355,13 +707,104 @@
         <div class="about-content">
             <h2 class="section-title">Made with Love</h2>
             <p>Every single recipe at Yaya's Treats is crafted by hand using premium ingredients, lots of love, and a giant dash of cute magic! We believe that dessert should be beautiful, delicious, and full of smiles.</p>
+            <p style="margin-top: 20px; font-size: 1rem; color: #999;">All our treats are baked fresh daily and available for pickup or delivery within 24 hours of order placement.</p>
+        </div>
+    </section>
+
+    <section class="order-section" id="order-summary">
+        <div class="order-container">
+            <h2 class="section-title">Your Order</h2>
+            <div class="order-summary">
+                <div id="orderItems">
+                    <div class="empty-cart">🛒 Your cart is empty. Start adding treats!</div>
+                </div>
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span id="totalPrice">$0.00</span>
+                </div>
+                <button class="submit-btn" onclick="proceedToCheckout()" id="checkoutBtn" style="margin-top: 20px; display: none;">Proceed to Checkout</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Contact Info</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <p>
+                            <strong>Address:</strong><br>
+                            123 Cute Street<br>
+                            Pastry City, PC 12345
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <p>
+                            <strong>Phone:</strong><br>
+                            (555) 123-4567
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <p>
+                            <strong>Email:</strong><br>
+                            hello@yayas-treats.com
+                        </p>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕐</div>
+                        <p>
+                            <strong>Hours:</strong><br>
+                            Mon - Fri: 10am - 6pm<br>
+                            Sat - Sun: 12pm - 5pm
+                        </p>
+                    </div>
+                </div>
+
+                <div class="contact-info">
+                    <h3>Send us a Message</h3>
+                    <div class="form-success" id="formSuccess">✓ Thank you! We'll get back to you soon!</div>
+                    <form id="contactForm" onsubmit="submitForm(event)">
+                        <div class="form-group">
+                            <label for="name">Name *</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject *</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Select a subject...</option>
+                                <option value="order">Order Inquiry</option>
+                                <option value="custom">Custom Order</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message *</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <footer>
         <p>&copy; 2026 Yaya's Treats. All Rights Reserved.</p>
         <p>Baked fresh daily with love & cute bows 🎀</p>
-        <!-- Footer Tiny Kitty -->
         <svg class="footer-kitty" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
             <ellipse cx="80" cy="70" rx="65" ry="50" fill="#fff" stroke="#5c4146" stroke-width="4"/>
             <path d="M 25 35 L 15 5 C 18 2, 35 5, 45 23" fill="#fff" stroke="#5c4146" stroke-width="4"/>
@@ -378,6 +821,112 @@
             <ellipse cx="80" cy="82" rx="6" ry="4" fill="#ffcc00"/>
         </svg>
     </footer>
+
+    <script>
+        let cart = [];
+
+        function increaseQty(index) {
+            const input = document.getElementById(`qty-${index}`);
+            input.value = parseInt(input.value) + 1;
+        }
+
+        function decreaseQty(index) {
+            const input = document.getElementById(`qty-${index}`);
+            if (parseInt(input.value) > 0) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        function updateQty(index) {
+            const input = document.getElementById(`qty-${index}`);
+            if (input.value < 0) input.value = 0;
+        }
+
+        function addToCart(index, name, price) {
+            const qty = parseInt(document.getElementById(`qty-${index}`).value);
+            if (qty === 0) {
+                alert('Please select a quantity!');
+                return;
+            }
+
+            const existingItem = cart.find(item => item.name === name);
+            if (existingItem) {
+                existingItem.quantity += qty;
+            } else {
+                cart.push({ name, price, quantity: qty, id: index });
+            }
+
+            document.getElementById(`qty-${index}`).value = 0;
+            updateCart();
+            alert(`Added ${qty} ${name} to cart!`);
+        }
+
+        function updateCart() {
+            const cartBadge = document.getElementById('cartBadge');
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            cartBadge.textContent = totalItems;
+            
+            const orderItems = document.getElementById('orderItems');
+            const totalPriceEl = document.getElementById('totalPrice');
+            const checkoutBtn = document.getElementById('checkoutBtn');
+
+            if (cart.length === 0) {
+                orderItems.innerHTML = '<div class="empty-cart">🛒 Your cart is empty. Start adding treats!</div>';
+                checkoutBtn.style.display = 'none';
+                totalPriceEl.textContent = '$0.00';
+            } else {
+                let html = '';
+                let total = 0;
+                cart.forEach((item, idx) => {
+                    const itemTotal = item.price * item.quantity;
+                    total += itemTotal;
+                    html += `
+                        <div class="order-item">
+                            <div>
+                                <strong>${item.name}</strong><br>
+                                $${item.price.toFixed(2)} x ${item.quantity}
+                            </div>
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <span>$${itemTotal.toFixed(2)}</span>
+                                <button class="remove-btn" onclick="removeFromCart(${idx})">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                orderItems.innerHTML = html;
+                totalPriceEl.textContent = `$${total.toFixed(2)}`;
+                checkoutBtn.style.display = 'block';
+            }
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCart();
+        }
+
+        function proceedToCheckout() {
+            if (cart.length === 0) return;
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            alert(`Proceeding to checkout...\n\nTotal: $${total.toFixed(2)}\n\nIn a real store, this would connect to a payment processor like Stripe or PayPal.`);
+        }
+
+        function submitForm(event) {
+            event.preventDefault();
+            const form = document.getElementById('contactForm');
+            const formSuccess = document.getElementById('formSuccess');
+            
+            formSuccess.style.display = 'block';
+            form.reset();
+            
+            setTimeout(() => {
+                formSuccess.style.display = 'none';
+            }, 4000);
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
 
 </body>
 </html>
