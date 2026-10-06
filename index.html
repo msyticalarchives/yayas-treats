@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yaya's Treats - Hello Kitty Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-pink: #ffb7c5;
+            --dark-pink: #ff6699;
+            --soft-pink: #ffeef2;
+            --accent-red: #ff3366;
+            --cream: #fffafb;
+            --text-color: #5c4146;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-color);
+            background-image: 
+                radial-gradient(var(--soft-pink) 20%, transparent 20%),
+                radial-gradient(var(--soft-pink) 20%, transparent 20%);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+
+        header {
+            background-color: white;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px dashed var(--primary-pink);
+            box-shadow: 0 4px 10px rgba(255, 183, 197, 0.2);
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.5rem;
+            color: var(--dark-pink);
+        }
+
+        .kitty-bow-icon {
+            width: 35px;
+            height: auto;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 700;
+            margin-left: 20px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--dark-pink);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffe3e8 100%);
+            position: relative;
+            overflow: hidden;
+            border-bottom: 5px solid var(--primary-pink);
+        }
+
+        .hero::before, .hero::after {
+            content: '💝';
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+        }
+        .hero::before { top: 20px; left: 40px; transform: rotate(-15deg); }
+        .hero::after { bottom: 20px; right: 40px; transform: rotate(15deg); }
+
+        .hero-kitty {
+            max-width: 140px;
+            margin-bottom: 15px;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .hero h1 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 3.5rem;
+            color: var(--dark-pink);
+            text-shadow: 2px 2px 0px white, 4px 4px 0px var(--soft-pink);
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #8a636a;
+            margin-bottom: 25px;
+        }
+
+        .menu-container {
+            max-width: 1100px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.5rem;
+            color: var(--dark-pink);
+            margin-bottom: 40px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 4px;
+            background: var(--primary-pink);
+            border-radius: 2px;
+            margin: 8px auto 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: white;
+            border: 3px solid var(--soft-pink);
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 8px 0px var(--soft-pink);
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 0px var(--primary-pink);
+            border-color: var(--primary-pink);
+        }
+
+        .card-bow {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .flavor-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .card h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.6rem;
+            color: var(--dark-pink);
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 1rem;
+            color: #7a5e62;
+            margin-bottom: 20px;
+            line-height: 1.4;
+        }
+
+        .price-badge {
+            background-color: var(--dark-pink);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-block;
+            border: 2px dashed white;
+            box-shadow: 0 0 0 3px var(--dark-pink);
+        }
+
+        .about-section {
+            background-color: white;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 4px dashed var(--primary-pink);
+            border-bottom: 4px dashed var(--primary-pink);
+        }
+
+        .about-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            background-color: var(--soft-pink);
+            text-align: center;
+            padding: 40px 20px;
+            color: var(--text-color);
+            font-weight: bold;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer-kitty {
+            max-width: 60px;
+            margin-top: 15px;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero p { font-size: 1.1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <!-- Decorative SVG Hello Kitty Ribbon/Bow -->
+            <svg class="kitty-bow-icon" viewBox="0 0 100 70" xmlns="http://www.w3.org/2000/svg">
+                <ellipse cx="50" cy="35" rx="18" ry="15" fill="#ff3366"/>
+                <ellipse cx="25" cy="28" rx="20" ry="18" fill="#ff3366"/>
+                <ellipse cx="75" cy="28" rx="20" ry="18" fill="#ff3366"/>
+                <circle cx="23" cy="28" r="6" fill="#fff" opacity="0.4"/>
+                <circle cx="73" cy="28" r="6" fill="#fff" opacity="0.4"/>
+                <circle cx="50" cy="35" r="7" fill="#ffcc00"/>
+            </svg>
+            Yaya's Treats
+        </div>
+        <nav>
+            <a href="#menu">Menu</a>
+            <a href="#about">Our Story</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <!-- SVG Stylized Hello Kitty Face Graphic -->
+        <svg class="hero-kitty" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <!-- Head Background & Shadow -->
+            <ellipse cx="80" cy="70" rx="65" ry="50" fill="#fff" stroke="#5c4146" stroke-width="4"/>
+            <!-- Left Ear -->
+            <path d="M 25 35 L 15 5 C 18 2, 35 5, 45 23" fill="#fff" stroke="#5c4146" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Right Ear -->
+            <path d="M 135 35 L 145 5 C 142 2, 125 5, 115 23" fill="#fff" stroke="#5c4146" stroke-width="4" stroke-linejoin="round"/>
+            <!-- Re-draw head bounds to clip ears cleanly -->
+            <ellipse cx="80" cy="70" rx="65" ry="50" fill="none" stroke="#5c4146" stroke-width="4"/>
+            <!-- Red Iconic Bow -->
+            <g transform="translate(100, 10)">
+                <ellipse cx="25" cy="20" rx="13" ry="11" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
+                <ellipse cx="5" cy="13" rx="14" ry="12" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
+                <ellipse cx="41" cy="13" rx="14" ry="12" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
+                <circle cx="23" cy="15" r="7" fill="#ffcc00" stroke="#5c4146" stroke-width="3"/>
+            </g>
+            <!-- Eyes -->
+            <ellipse cx="50" cy="72" rx="4" ry="6" fill="#5c4146"/>
+            <ellipse cx="110" cy="72" rx="4" ry="6" fill="#5c4146"/>
+            <!-- Nose -->
+            <ellipse cx="80" cy="82" rx="6" ry="4" fill="#ffcc00"/>
+            <!-- Whiskers Left -->
+            <line x1="20" y1="72" x2="38" y2="74" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="16" y1="84" x2="36" y2="83" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
+            <!-- Whiskers Right -->
+            <line x1="140" y1="72" x2="122" y2="74" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
+            <line x1="144" y1="84" x2="124" y2="83" stroke="#5c4146" stroke-width="3.5" stroke-linecap="round"/>
+        </svg>
+        
+        <h1>Welcome to Yaya's Treats</h1>
+        <p>Baking the world a sweeter place, one adorable treat at a time! 💕</p>
+    </section>
+
+    <main class="menu-container" id="menu">
+        <h2 class="section-title">Our Signature Flavors</h2>
+        <div class="grid">
+            
+            <div class="card">
+                <span class="card-bow">🎀</span>
+                <span class="flavor-icon">🍫</span>
+                <h3>Brownies</h3>
+                <p>Rich, fudgy chocolate goodness baked to melt-in-your-mouth perfection.</p>
+                <span class="price-badge">$2.00</span>
+            </div>
+
+            <div class="card">
+                <span class="card-bow">🎀</span>
+                <span class="flavor-icon">🥣</span>
+                <h3>Fruity Pebble</h3>
+                <p>A colorful, crunchy blast of sweet cereal milk goodness in every single bite.</p>
+                <span class="price-badge">$2.00</span>
+            </div>
+
+            <div class="card">
+                <span class="card-bow">🎀</span>
+                <span class="flavor-icon">💙</span>
+                <h3>Cookie Monster</h3>
+                <p>Packed with loaded cookies and sweet blue magic that monsters of all ages crave.</p>
+                <span class="price-badge">$2.00</span>
+            </div>
+
+            <div class="card">
+                <span class="card-bow">🎀</span>
+                <span class="flavor-icon">🍓</span>
+                <h3>Strawberry Shortcake</h3>
+                <p>Sweet, tangy strawberry bliss layered perfectly with a light, dreamy crumble texture.</p>
+                <span class="price-badge">$2.00</span>
+            </div>
+
+            <div class="card">
+                <span class="card-bow">🎀</span>
+                <span class="flavor-icon">🍪</span>
+                <h3>Cookies n Creme</h3>
+                <p>Classic chocolate sandwich cookie crumbles folded directly into smooth, creamy velvet batter.</p>
+                <span class="price-badge">$2.00</span>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="about-section" id="about">
+        <div class="about-content">
+            <h2 class="section-title">Made with Love</h2>
+            <p>Every single recipe at Yaya's Treats is crafted by hand using premium ingredients, lots of love, and a giant dash of cute magic! We believe that dessert should be beautiful, delicious, and full of smiles.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Yaya's Treats. All Rights Reserved.</p>
+        <p>Baked fresh daily with love & cute bows 🎀</p>
+        <!-- Footer Tiny Kitty -->
+        <svg class="footer-kitty" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="80" cy="70" rx="65" ry="50" fill="#fff" stroke="#5c4146" stroke-width="4"/>
+            <path d="M 25 35 L 15 5 C 18 2, 35 5, 45 23" fill="#fff" stroke="#5c4146" stroke-width="4"/>
+            <path d="M 135 35 L 145 5 C 142 2, 125 5, 115 23" fill="#fff" stroke="#5c4146" stroke-width="4"/>
+            <ellipse cx="80" cy="70" rx="65" ry="50" fill="none" stroke="#5c4146" stroke-width="4"/>
+            <g transform="translate(100, 10)">
+                <ellipse cx="25" cy="20" rx="13" ry="11" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
+                <ellipse cx="5" cy="13" rx="14" ry="12" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
+                <ellipse cx="41" cy="13" rx="14" ry="12" fill="#ff3366" stroke="#5c4146" stroke-width="3"/>
+                <circle cx="23" cy="15" r="7" fill="#ffcc00" stroke="#5c4146" stroke-width="3"/>
+            </g>
+            <ellipse cx="50" cy="72" rx="4" ry="6" fill="#5c4146"/>
+            <ellipse cx="110" cy="72" rx="4" ry="6" fill="#5c4146"/>
+            <ellipse cx="80" cy="82" rx="6" ry="4" fill="#ffcc00"/>
+        </svg>
+    </footer>
+
+</body>
+</html>
